@@ -20,6 +20,9 @@ public class DriverDetail {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @OneToOne(mappedBy = "driverDetail", cascade = CascadeType.ALL)
+    private Driver driver;
+
     public DriverDetail() {
     }
 
@@ -50,6 +53,14 @@ public class DriverDetail {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
 
     @Override

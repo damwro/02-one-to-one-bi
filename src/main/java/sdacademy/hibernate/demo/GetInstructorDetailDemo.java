@@ -3,10 +3,10 @@ package sdacademy.hibernate.demo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import pl.sdacademy.demo.entity.Driver;
-import pl.sdacademy.demo.entity.DriverDetail;
+import sdacademy.demo.entity.Driver;
+import sdacademy.demo.entity.DriverDetail;
 
-public class CreateDemo {
+public class GetInstructorDetailDemo {
 
     public static void main(String[] args) {
         //tworzenie fabryki
@@ -19,25 +19,25 @@ public class CreateDemo {
         Session session = factory.getCurrentSession();
 
         try {
-
-            //stwórz obiekty i powiąż je ze sobą
-            Driver driver = new Driver("Mariusz", "Nowak");
-
-            DriverDetail driverDetail = new DriverDetail("A", "456789132");
-
-            driver.setDriverDetail(driverDetail);
-
             //rozpocznij transakcję żeby zapisać
             session.beginTransaction();
 
-            //zapiszą się oba obiekty bo mamy wiązanie Cascade.ALL
-            session.save(driver);
+            Long id = 2L;
+            DriverDetail driverDetail = session.get(DriverDetail.class, id);
 
+            System.out.println(driverDetail);
+
+            System.out.println("---------Kierowca pobrany ze szczegółów-----------");
+            System.out.println(driverDetail.getDriver());
 
             //zakomituj transakcję
             session.getTransaction().commit();
 
+        } catch (Exception e){
+            e.printStackTrace();
+
         } finally {
+            session.close();
             //posprzątaj po otwartej sesji
             factory.close();
         }
