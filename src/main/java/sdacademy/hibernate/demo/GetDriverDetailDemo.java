@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 import sdacademy.demo.entity.Driver;
 import sdacademy.demo.entity.DriverDetail;
 
-public class GetInstructorDetailDemo {
+public class GetDriverDetailDemo {
 
     public static void main(String[] args) {
         //tworzenie fabryki
