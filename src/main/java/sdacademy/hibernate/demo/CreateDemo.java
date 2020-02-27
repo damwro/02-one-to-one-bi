@@ -3,8 +3,8 @@ package sdacademy.hibernate.demo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import pl.sdacademy.demo.entity.Driver;
-import pl.sdacademy.demo.entity.DriverDetail;
+import sdacademy.demo.entity.Driver;
+import sdacademy.demo.entity.DriverDetail;
 
 public class CreateDemo {
 
